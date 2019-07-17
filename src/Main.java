@@ -19,10 +19,10 @@ public class Main {
 		
 		// quick test to see if we can load data from a CSV file
 		// and at least get an accurate count of the rows loaded in
-		System.out.println("- Testing the ClientStore class\n");
+		//System.out.println("- Testing the ClientStore class\n");
 		ClientStore myStore = new ClientStore("clients_list.csv");
 		Client[] store = myStore.getClientStore();
-		System.out.println("\n");
+		
 		System.out.println("- DataCount: " + myStore.getClientDataCount());
 		System.out.println("\nThis is a list of all the data in the store\n");
 		// iterate via the array of store.
