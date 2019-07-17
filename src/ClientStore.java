@@ -53,6 +53,7 @@ public class ClientStore {
 			
 		} catch(IOException exc) {
 			System.out.println("IO Error: " + exc);
+			return false;
 		}
 		
 		return true;
