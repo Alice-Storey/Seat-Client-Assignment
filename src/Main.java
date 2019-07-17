@@ -9,11 +9,14 @@ public class Main {
 	public static void getInput() {
 
 		// quick test of the client data structure
+		/*
 		System.out.println("getInput()\n");
 		System.out.println("- We are going to create a Client class that will hold data and return itself or some info about it");
 		Client testClient = new Client("Gauthier", "Claude", 2);
 		System.out.println("Lastname: " + testClient.getClientLastName() + " " + "Firstname: " + testClient.getClientFirstName() + " " + "ID: " + testClient.getClientId());
 		System.out.println("\n\n");
+		*/
+		
 		// quick test to see if we can load data from a CSV file
 		// and at least get an accurate count of the rows loaded in
 		System.out.println("- Testing the ClientStore class\n");
