@@ -19,4 +19,12 @@ public class Seat {
 		int[] rowcol =  { r.ordinal(), c };
 		return rowcol;
 	}
+	
+	public int getRow () {
+		return coords()[0];
+	}
+	
+	public int getCol() {
+		return coords()[1];
+	}
 }
