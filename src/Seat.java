@@ -63,4 +63,8 @@ public class Seat {
 	public int getClientId() {
 		return isAssigned() ? this.client.getClientId() : -1;
 	}
+	
+	public String toString() {
+		return String.format("%c%d", r.name(), c);
+	}
 }
