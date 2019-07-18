@@ -8,7 +8,7 @@ public class Main {
 		
 	}
 	
-	public static void getInput() {
+	public static void getInput() throws CloneNotSupportedException {
 
 		// quick test of the client data structure
 		/*
@@ -23,8 +23,15 @@ public class Main {
 		// and at least get an accurate count of the rows loaded in
 		//System.out.println("- Testing the ClientStore class\n");
 		myStore = new ClientStore("clients_list.csv");
-		Client[] store = myStore.getClientStore();
-		myStore.shuffle();
+		ClientStore shuffledStore;
+		try {
+			shuffledStore = (ClientStore) myStore.clone();
+			
+		}
+		catch (CloneNotSupportedException e) {
+			throw e;
+		}
+		shuffledStore.shuffle();
 		room = new Room(5,5);
 		
 		/*
@@ -33,6 +40,7 @@ public class Main {
 		*/
 		
 		// iterate via the array of store.
+		Client[] store = shuffledStore.getClientStore();
 		for(int i=0; i<store.length; i++) {
 			Client client = store[i];
 			if(client != null) {
@@ -44,27 +52,19 @@ public class Main {
 			}
 		}
 		System.out.println(room);
+		System.out.println(myStore);
 		
 		
 	}	
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws CloneNotSupportedException {
 		startApp();
-		getInput();
-		
-		
-		//code just for testing methods
-		Seat testSeat = new Seat();
-		for (int i : testSeat.coords()) {
-			System.out.println(i);
+		try {
+			getInput();
 		}
-		System.out.println("Is there a client assigned to test seat?");
-		System.out.println(testSeat.isAssigned());
-		System.out.println("What about now?");
-		Client testClient = new Client("Gauthier", "Claude", 2);
-		testSeat.setClient(testClient);
-		System.out.println(testSeat.isAssigned());
-		System.out.println(testSeat);
+		catch (CloneNotSupportedException e) {
+			System.out.println(e);
+		}
 	}
 
 }

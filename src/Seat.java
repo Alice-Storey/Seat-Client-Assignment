@@ -65,6 +65,7 @@ public class Seat {
 	
 	public void setClient(Client client) {
 		this.client = client;
+		client.setSeat(this);
 	}
 	
 	public Client getClient() {
@@ -84,7 +85,7 @@ public class Seat {
 	}
 	
 	public String seatName() {
-		return String.format("%c%d", r.name(), c);
+		return String.format("%s%d", r.name(), c);
 	}
 	
 	public String toString() {

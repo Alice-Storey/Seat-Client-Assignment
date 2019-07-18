@@ -89,4 +89,14 @@ public class ClientStore implements Cloneable{
 		}
 		
 	}
+	
+	public String toString() {
+		String output=String.format("%-30s%-5s%-5s\n", "Client", "ID", "Seat");
+		
+		for(Client client : dataStore) {
+			output += String.format("%-30s%-5d%-5s\n", client.getClientFirstName()+" "+client.getClientLastName(), client.getClientId(), client.getSeat().seatName());
+		}
+		
+		return output;
+	}
 }

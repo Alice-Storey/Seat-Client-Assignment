@@ -4,6 +4,7 @@ public class Client {
 	private String lastname;
 	private String firstname;
 	private int id;
+	private Seat seat;
 	
 	Client(String l, String f, int i) {
 		lastname = l;
@@ -37,5 +38,13 @@ public class Client {
 	
 	public String toString() {
 		return getClientFirstName();
+	}
+	
+	public void setSeat(Seat seat) {
+		this.seat = seat;
+	}
+	
+	public Seat getSeat() {
+		return this.seat;
 	}
 }
