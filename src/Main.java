@@ -37,6 +37,13 @@ public class Main {
 	public static void main(String[] args) {
 		startApp();
 		getInput();
+		
+		
+		//code just for testing methods
+		Seat testSeat = new Seat(1,1);
+		for (int i : testSeat.coords()) {
+			System.out.println(i);
+		}
 	}
 
 }

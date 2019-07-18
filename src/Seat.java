@@ -10,4 +10,13 @@ public class Seat {
 	private Row r;
 	private int c;
 	
+	Seat(int r, int c) {
+		this.r = Row.values()[r];
+		this.c = c;
+	}
+	
+	public int[] coords() {
+		int[] rowcol =  { r.ordinal(), c };
+		return rowcol;
+	}
 }
