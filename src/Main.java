@@ -44,6 +44,12 @@ public class Main {
 		for (int i : testSeat.coords()) {
 			System.out.println(i);
 		}
+		System.out.println("Is there a client assigned to test seat?");
+		System.out.println(testSeat.isAssigned());
+		System.out.println("What about now?");
+		Client testClient = new Client("Gauthier", "Claude", 2);
+		testSeat.setClient(testClient);
+		System.out.println(testSeat.isAssigned());
 	}
 
 }

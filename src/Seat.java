@@ -4,8 +4,7 @@ public class Seat {
 		A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z
 	}
 	
-	private String initials,
-	clientid;
+	private Client client;
 	private boolean assignable;
 	private Row r;
 	private int c;
@@ -43,5 +42,17 @@ public class Seat {
 	
 	public void setCanBeAssigned(boolean assignable) {
 		this.assignable = assignable;
+	}
+	
+	public void setClient(Client client) {
+		this.client = client;
+	}
+	
+	public Client getClient() {
+		return this.client;
+	}
+	
+	public boolean isAssigned() {
+		return this.client != null;
 	}
 }
