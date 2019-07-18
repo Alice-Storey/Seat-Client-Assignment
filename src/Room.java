@@ -32,6 +32,19 @@ public class Room {
 	public String toString() {
 		String output = "";
 		
+		output += String.format("%7s", " ");
+		for (int i=0; i<getNumCols(); ++i) {
+			output += String.format("%15s", "Seat "+i);
+		}
+		
+		int rowcount = 0;
+		for (Seat[] row : seats) {
+			output += String.format("%7s","Row "+Seat.rowChar(++rowcount));
+			for (Seat seat : row) {
+				output += String.format("%15s", seat);
+			}
+			output += "\n";
+		}
 		
 		return output;
 	}

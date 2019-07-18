@@ -23,6 +23,10 @@ public class Seat {
 		return Row.valueOf(Character.toString(r)).ordinal();
 	}
 	
+	public static char rowChar(int r) {
+		return r<Row.values().length ? Row.values()[r].name().charAt(0) : '-';
+	}
+	
 	public int[] coords() {
 		int[] rowcol =  { r.ordinal(), c };
 		return rowcol;
