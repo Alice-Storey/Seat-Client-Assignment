@@ -55,4 +55,12 @@ public class Seat {
 	public boolean isAssigned() {
 		return this.client != null;
 	}
+	
+	public String getClientInitials() {
+		return isAssigned() ? this.client.getClientInitials() : "";
+	}
+	
+	public int getClientId() {
+		return isAssigned() ? this.client.getClientId() : -1;
+	}
 }
