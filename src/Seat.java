@@ -20,6 +20,10 @@ public class Seat {
 		this.c = c;
 	}
 	
+	public static int rowNum(char r) {
+		return Row.valueOf(Character.toString(r)).ordinal();
+	}
+	
 	public int[] coords() {
 		int[] rowcol =  { r.ordinal(), c };
 		return rowcol;
