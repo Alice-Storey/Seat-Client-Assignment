@@ -1,4 +1,5 @@
 public class Main {
+	private static Room room;
 
 	public static void startApp() {
 		System.out.println("startApp()");
@@ -22,6 +23,7 @@ public class Main {
 		//System.out.println("- Testing the ClientStore class\n");
 		ClientStore myStore = new ClientStore("clients_list.csv");
 		Client[] store = myStore.getClientStore();
+		myStore.shuffle();
 		
 		System.out.println("- DataCount: " + myStore.getClientDataCount());
 		System.out.println("\nThis is a list of all the data in the store\n");

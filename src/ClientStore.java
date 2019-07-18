@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class ClientStore {
+public class ClientStore implements Cloneable{
 	private Client[] dataStore;
 	private int dataCount;
 	private String filename;
@@ -68,4 +68,25 @@ public class ClientStore {
 		return dataCount;
 	}
 	
+	@Override
+	public Object clone() throws CloneNotSupportedException{
+		ClientStore newStore = new ClientStore(filename);
+		
+		for (int i=0; i<getClientDataCount(); i++) {
+			newStore.dataStore[i] = dataStore[i];
+		}
+		
+		return (Object)newStore;
+	}
+	
+	public void shuffle() {
+		
+		for (int i=0; i<getClientDataCount(); i++) {
+			int ran = (int) (Math.random()*getClientDataCount());
+			Client temp = dataStore[i];
+			dataStore[i] = dataStore[ran];
+			dataStore[ran] = temp;
+		}
+		
+	}
 }
