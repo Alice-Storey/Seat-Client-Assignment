@@ -6,7 +6,7 @@ public class Seat {
 	
 	private String initials,
 	clientid;
-	private boolean canBeAssigned;
+	private boolean assignable;
 	private Row r;
 	private int c;
 	
@@ -35,5 +35,13 @@ public class Seat {
 	
 	public int getCol() {
 		return coords()[1];
+	}
+	
+	public boolean canBeAssigned() {
+		return assignable;
+	}
+	
+	public void setCanBeAssigned(boolean assignable) {
+		this.assignable = assignable;
 	}
 }
