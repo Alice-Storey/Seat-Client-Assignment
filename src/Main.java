@@ -50,6 +50,7 @@ public class Main {
 		Client testClient = new Client("Gauthier", "Claude", 2);
 		testSeat.setClient(testClient);
 		System.out.println(testSeat.isAssigned());
+		System.out.println(testSeat);
 	}
 
 }

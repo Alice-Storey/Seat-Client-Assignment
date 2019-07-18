@@ -64,7 +64,11 @@ public class Seat {
 		return isAssigned() ? this.client.getClientId() : -1;
 	}
 	
-	public String toString() {
+	public String seatName() {
 		return String.format("%c%d", r.name(), c);
+	}
+	
+	public String toString() {
+		return isAssigned() ? String.format("id: %d/%s", getClientId(), getClientInitials()) : (canBeAssigned() ? "vacant" : "X");
 	}
 }
