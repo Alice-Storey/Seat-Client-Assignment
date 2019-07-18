@@ -34,4 +34,8 @@ public class Client {
 		String full = ("id: " + id + " lastname: " + lastname + " firstname: " + firstname);
 		return full;
 	}
+	
+	public String toString() {
+		return getClientFirstName();
+	}
 }

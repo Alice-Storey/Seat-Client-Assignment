@@ -1,5 +1,6 @@
 public class Main {
 	private static Room room;
+	private static ClientStore myStore;
 
 	public static void startApp() {
 		System.out.println("startApp()");
@@ -21,18 +22,29 @@ public class Main {
 		// quick test to see if we can load data from a CSV file
 		// and at least get an accurate count of the rows loaded in
 		//System.out.println("- Testing the ClientStore class\n");
-		ClientStore myStore = new ClientStore("clients_list.csv");
+		myStore = new ClientStore("clients_list.csv");
 		Client[] store = myStore.getClientStore();
 		myStore.shuffle();
+		room = new Room(5,5);
 		
+		/*
 		System.out.println("- DataCount: " + myStore.getClientDataCount());
 		System.out.println("\nThis is a list of all the data in the store\n");
+		*/
+		
 		// iterate via the array of store.
-		for(Client c : store) {
-			if(c != null) {
-				System.out.println(c.getFullClientString());
+		for(int i=0; i<store.length; i++) {
+			Client client = store[i];
+			if(client != null) {
+				//System.out.println(c.getFullClientString());
+				int r = i/room.getNumRows();
+				int c = i%room.getNumCols();
+				System.out.printf("Assigning %d, %d to %s\n", r, c, client);
+				room.assign(r, c, client);
 			}
 		}
+		System.out.println(room);
+		
 		
 	}	
 	
@@ -42,7 +54,7 @@ public class Main {
 		
 		
 		//code just for testing methods
-		Seat testSeat = new Seat('C',1);
+		Seat testSeat = new Seat();
 		for (int i : testSeat.coords()) {
 			System.out.println(i);
 		}

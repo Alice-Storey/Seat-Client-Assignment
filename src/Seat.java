@@ -9,12 +9,27 @@ public class Seat {
 	private Row r;
 	private int c;
 	
-	Seat(int r, int c) {
+	Seat() {
+		set('A', 0);
+		this.assignable = true;
+	}
+	
+	public Seat(int r, int c) {
+		set(r,c);
+		this.assignable = true;
+	}
+	
+	public Seat(char r, int c) {
+		set(r,c);
+		this.assignable = true;
+	}
+	
+	public void set(int r, int c) {
 		this.r = Row.values()[r];
 		this.c = c;
 	}
 	
-	Seat(char r, int c) {
+	public void set(char r, int c) {
 		this.r = Row.valueOf(Character.toString(r));
 		this.c = c;
 	}
