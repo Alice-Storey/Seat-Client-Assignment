@@ -13,17 +13,26 @@ public class Room {
 		return seats.length>0 ? seats[0].length : 0;
 	}
 	
-	public void assign(int r, int c, Client client) {
-		if (r<getNumRows() && c<getNumCols()) {
+	public boolean assign(int r, int c, Client client) {
+		if (r<getNumRows() && c<getNumCols() && seats[r][c].canBeAssigned()) {
 			seats[r][c].setClient(client);
+			return true;
 		}
+		return false;
 	}
 	
-	public void assign(char r, int c, Client client) {
-		assign(Seat.rowNum(r), c, client);
+	public boolean assign(char r, int c, Client client) {
+		return assign(Seat.rowNum(r), c, client);
 	}
 	
-	public void assign(Seat.Row r, int c, Client client) {
-		assign(r.ordinal(), c, client);
+	public boolean assign(Seat.Row r, int c, Client client) {
+		return assign(r.ordinal(), c, client);
+	}
+	
+	public String toString() {
+		String output = "";
+		
+		
+		return output;
 	}
 }
