@@ -15,6 +15,11 @@ public class Seat {
 		this.c = c;
 	}
 	
+	Seat(char r, int c) {
+		this.r = Row.valueOf(Character.toString(r));
+		this.c = c;
+	}
+	
 	public int[] coords() {
 		int[] rowcol =  { r.ordinal(), c };
 		return rowcol;

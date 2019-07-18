@@ -40,7 +40,7 @@ public class Main {
 		
 		
 		//code just for testing methods
-		Seat testSeat = new Seat(1,1);
+		Seat testSeat = new Seat('C',1);
 		for (int i : testSeat.coords()) {
 			System.out.println(i);
 		}
