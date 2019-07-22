@@ -1,6 +1,3 @@
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
-
 public class Main {
 	private static Room room;
 	private static ClientStore myStore;
@@ -9,33 +6,6 @@ public class Main {
 		System.out.println("startApp()");
 		System.out.println("\n");
 		
-		SwingUtilities.invokeLater(new Runnable() {
-			AssignmentFrame app;
-			JFrame frame;			
-			
-			public void run() {
-				app = new AssignmentFrame("My 2nd Matrix Demo");
-				frame = app.getFrame();
-				frame = setupFrame(frame, JFrame.EXIT_ON_CLOSE, 400, 400);
-				frame.setVisible(true);
-			}
-		});
-		
-	}
-	
-	public static JFrame setupFrame(JFrame frame, int onExit, int width, int height) {
-		// this will center and size the JFrame on screen
-		// it will have a height and width of half the screen
-		centerAndSizeJFrameOnScreen(frame, width, height);
-		frame.setDefaultCloseOperation(onExit);
-		return frame;
-	}
-	
-	public static void centerAndSizeJFrameOnScreen(JFrame frm, int width, int height) {
-		// set the size of the frame to half in width and height
-		frm.setSize(width, height);
-		// here's the part where the JFrame gets actually centered
-		frm.setLocationRelativeTo(null);
 	}
 	
 	public static void getInput() throws CloneNotSupportedException {
