@@ -1,28 +1,29 @@
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class SeatLabel {
-	private String position;
+	private int position;
 	private JLabel label;
-	private JFrame frame;
+	private JPanel panel;
 	
 	SeatLabel() {
 		
 	}
 	
-	JLabel setLabel(String labelName, String position, JFrame frame) {
-		this.position = position;
-		this.label = new JLabel(labelName, JLabel.CENTER);
-		this.frame = frame;
+	JLabel setLabel(String labelName, JPanel panel) {
+		this.position = JLabel.CENTER;
+		this.label = new JLabel(labelName, position);
+		this.panel = panel;
 		setLabelInLayout();
 		return this.label;
 	}
 	
 	private void setLabelInLayout() {
-		frame.add(label, position);
+		panel.add(label);
 	}
 	
-	JFrame getFrame() {
-		return frame;
+	JPanel getPanel() {
+		return panel;
 	}
 }
