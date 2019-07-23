@@ -85,7 +85,7 @@ public class Seat {
 	}
 	
 	public String seatName() {
-		return String.format("%s%d", r.name(), c);
+		return String.format("%s%d", r.name(), c+1);
 	}
 	
 	public String toString() {

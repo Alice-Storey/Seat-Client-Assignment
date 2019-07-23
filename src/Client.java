@@ -37,7 +37,7 @@ public class Client {
 	}
 	
 	public String toString() {
-		return getClientFirstName();
+		return getClientFirstName() + " " + getClientLastName();
 	}
 	
 	public void setSeat(Seat seat) {
