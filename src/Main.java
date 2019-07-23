@@ -14,6 +14,7 @@ public class Main {
 	private static int width = 500;
 	private static int height = 500;
 	private static ListControl listControl;
+	private static ButtonControl buttonControl;
 	private static final String TITLE="My 2nd Matrix Demo";
 	
 	public static void startApp() {
@@ -54,6 +55,9 @@ public class Main {
 		listControl = new ListControl(width, height);
 		listControl.populate(myStore);		
 		listControl.addTo(frame, BorderLayout.WEST);
+		
+		buttonControl = new ButtonControl(room);
+		buttonControl.addTo(frame, BorderLayout.CENTER);
 		
 		return frame;
 	}

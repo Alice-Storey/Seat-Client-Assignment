@@ -36,6 +36,14 @@ public class Room {
 		return assign(r.ordinal(), c, client);
 	}
 	
+	public Seat get(int r, int c) {
+		return seats[r][c];
+	}
+	
+	public Seat get(char r, int c) {
+		return get(Seat.rowNum(r), c);
+	}
+	
 	public String toString() {
 		String output = "";
 		
