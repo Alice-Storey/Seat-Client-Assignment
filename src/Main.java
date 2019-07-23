@@ -1,5 +1,11 @@
+import java.awt.BorderLayout;
+
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
 
 public class Main {
@@ -7,6 +13,9 @@ public class Main {
 	private static ClientStore myStore;
 	private static int width = 500;
 	private static int height = 500;
+	private static JList<Client> jlist;
+	private static DefaultListModel<Client> listmodel;
+	private static final String TITLE="My 2nd Matrix Demo";
 	
 	public static void startApp() {
 		System.out.println("startApp()");
@@ -17,9 +26,9 @@ public class Main {
 			JFrame frame;			
 			
 			public void run() {
-				app = new AssignmentFrame("My 2nd Matrix Demo");
+				app = new AssignmentFrame(TITLE);
 				frame = app.getFrame();
-				frame = setupFrame(frame, JFrame.EXIT_ON_CLOSE, 400, 400);
+				frame = setupFrame(frame, JFrame.EXIT_ON_CLOSE);
 				frame.setVisible(true);
 			}
 		});
@@ -27,23 +36,39 @@ public class Main {
 	}
 	
 	public static JLabel setHeaderLabel(JFrame frame) {
-		JLabel headerLabel = new JLabel("My 2nd Matrix Demo", JLabel.CENTER);
-		headerLabel.setSize(width, 30);
-		frame.add(headerLabel);
+		
+		JLabel headerLabel = new JLabel(TITLE, JLabel.CENTER);
+		JPanel headerPanel = new JPanel();
+		headerPanel.setSize(width, 30);
+		headerPanel.add(headerLabel);
+		frame.add(headerPanel, BorderLayout.NORTH);
 		
 		return headerLabel;
 	}
 	
-	public static JFrame setupFrame(JFrame frame, int onExit, int width, int height) {
+	public static JFrame setupFrame(JFrame frame, int onExit) {
 		centerAndSizeJFrameOnScreen(frame, width, height);
 		frame.setDefaultCloseOperation(onExit);
 		
 		setHeaderLabel(frame);
 		
+		listmodel = new DefaultListModel<Client>();
+		jlist = new JList<Client>(listmodel);
+		popList();
 		
-		
+		JScrollPane scrollPane = new JScrollPane(jlist);
+		scrollPane.setSize( width/3, height-60 );
+		frame.add(scrollPane, BorderLayout.WEST);
 		
 		return frame;
+	}
+	
+	public static void popList() {
+		Client[] store = myStore.getClientStore();
+		
+		for (Client client : store) {
+			listmodel.addElement(client);
+		}
 	}
 	
 	public static void centerAndSizeJFrameOnScreen(JFrame frm, int width, int height) {
@@ -101,13 +126,15 @@ public class Main {
 	}	
 	
 	public static void main(String[] args) throws CloneNotSupportedException {
-		startApp();
+		
 		try {
-			getInput();
+			getInput();			
 		}
 		catch (CloneNotSupportedException e) {
 			System.out.println(e);
 		}
+		startApp();
+		
 	}
 
 }
