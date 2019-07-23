@@ -13,8 +13,7 @@ public class Main {
 	private static ClientStore myStore;
 	private static int width = 500;
 	private static int height = 500;
-	private static JList<Client> jlist;
-	private static DefaultListModel<Client> listmodel;
+	private static ListControl listControl;
 	private static final String TITLE="My 2nd Matrix Demo";
 	
 	public static void startApp() {
@@ -52,24 +51,13 @@ public class Main {
 		
 		setHeaderLabel(frame);
 		
-		listmodel = new DefaultListModel<Client>();
-		jlist = new JList<Client>(listmodel);
-		popList();
-		
-		JScrollPane scrollPane = new JScrollPane(jlist);
-		scrollPane.setSize( width/3, height-60 );
-		frame.add(scrollPane, BorderLayout.WEST);
+		listControl = new ListControl(width, height);
+		listControl.populate(myStore);		
+		listControl.addTo(frame, BorderLayout.WEST);
 		
 		return frame;
 	}
 	
-	public static void popList() {
-		Client[] store = myStore.getClientStore();
-		
-		for (Client client : store) {
-			listmodel.addElement(client);
-		}
-	}
 	
 	public static void centerAndSizeJFrameOnScreen(JFrame frm, int width, int height) {
 		frm.setSize(width, height);
