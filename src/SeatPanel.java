@@ -1,11 +1,16 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 public class SeatPanel implements ActionListener {
 	private Seat seat;
@@ -15,20 +20,19 @@ public class SeatPanel implements ActionListener {
 	
 	public SeatPanel(Seat seat) {
 		this.seat = seat;
-		
+		label = new JLabel(seat.toString(), JLabel.CENTER);
 		panel = new JPanel();
-		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-		
-		label = new JLabel(seat.toString(),JLabel.CENTER);
-		
-		button = new JButton(seat.seatName());
-		button.setFont(new Font("Arial", Font.PLAIN, 8));
-		
+		panel.setLayout(new GridLayout(2,1));
 		panel.add(label);
+		
+		button = new JButton("Unbook");
 		panel.add(button);
+		panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	}
 	
+	
 	public void addTo(JPanel panel) {
+		//panel.add(this.panel);
 		panel.add(this.panel);
 	}
 	
