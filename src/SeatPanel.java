@@ -17,15 +17,19 @@ public class SeatPanel implements ActionListener {
 	private JPanel panel;
 	private JLabel label;
 	private JButton button;
+	private ListControl clients;
 	
-	public SeatPanel(Seat seat) {
+	public SeatPanel(Seat seat, ListControl clients) {
 		this.seat = seat;
+		this.clients = clients;
 		label = new JLabel(seat.toString(), JLabel.CENTER);
 		panel = new JPanel();
 		panel.setLayout(new GridLayout(2,1));
 		panel.add(label);
 		
 		button = new JButton("Unbook");
+		button.addActionListener(this);
+		
 		panel.add(button);
 		panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	}
@@ -39,7 +43,7 @@ public class SeatPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+		System.out.printf("%s pressed while %s selected.\n", seat.seatName(), clients.getSelection());
 	}
 
 }

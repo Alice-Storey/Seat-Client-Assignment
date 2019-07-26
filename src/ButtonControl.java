@@ -6,14 +6,13 @@ import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 import javax.swing.JLabel;
 
 public class ButtonControl implements ActionListener {
 	private SeatPanel[][] seatPanels;
 	private JPanel panel;
 	
-	public ButtonControl(Room room) {
+	public ButtonControl(Room room, ListControl clients) {
 		panel = new JPanel();
 		int rows = room.getNumRows(),
 				cols = room.getNumCols();
@@ -30,7 +29,6 @@ public class ButtonControl implements ActionListener {
 		
 		for (int r=0; r<=rows; r++) {			
 			for (int c=0; c<=cols; c++) {
-				JLabel tempLabel;
 				
 				if (r==0 && c==0) {
 					panel.add(new JLabel(" ", JLabel.CENTER));
@@ -43,7 +41,7 @@ public class ButtonControl implements ActionListener {
 					panel.add(new JLabel("Row "+Seat.rowChar(r-1), JLabel.CENTER));
 				}
 				else {
-					SeatPanel seatp = new SeatPanel(room.get(r-1, c-1));
+					SeatPanel seatp = new SeatPanel(room.get(r-1, c-1), clients);
 					seatPanels[r-1][c-1] = seatp;
 					seatp.addTo(panel);
 				}
