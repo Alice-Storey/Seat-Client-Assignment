@@ -41,9 +41,11 @@ public class SeatPanel implements ActionListener {
 	}
 	
 	public void book () {
-		seat.setClient(clients.popSelection());
-		button.setText("Unbook");
-		label.setText(seat.toString());
+		if (!seat.isAssigned()) {
+			seat.setClient(clients.popSelection());
+			button.setText("Unbook");
+			label.setText(seat.toString());
+		}
 	}
 	
 	public void unbook () {
