@@ -90,15 +90,21 @@ public class ClientStore implements Cloneable{
 		
 	}
 	
-	public String toString() {
+	public String toString(boolean filterassigned) {
 		String output=String.format("%-30s%-5s%-5s\n", "Client", "ID", "Seat");
 		
 		for(Client client : dataStore) {
-			output += String.format("%-30s%-5d%-5s\n", client.getClientFirstName()+" "+client.getClientLastName(), client.getClientId(), 
-					client.isSeated() ? client.getSeat().seatName() : "--"
-					);
+			if (client.isSeated() || !filterassigned) {
+				output += String.format("%-30s%-5d%-5s\n", client.getClientFirstName()+" "+client.getClientLastName(), client.getClientId(), 
+						client.isSeated() ? client.getSeat().seatName() : "--"
+						);
+			}
 		}
 		
 		return output;
+	}
+	
+	public String toString() {
+		return toString(false);
 	}
 }

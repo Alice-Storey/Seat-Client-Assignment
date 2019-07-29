@@ -32,7 +32,7 @@ public class LogButtons implements ActionListener {
 			buttonControl.unbookAll();
 		}
 		else {
-			System.out.println(store);
+			System.out.println(store.toString(true));
 		}
 
 	}
