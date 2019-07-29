@@ -37,7 +37,7 @@ public class ListControl implements ListSelectionListener {
 
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
-		System.out.println(jlist.getSelectedValue());
+		//System.out.println(jlist.getSelectedValue());
 	}
 	
 	public Client getSelection() {

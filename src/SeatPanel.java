@@ -47,15 +47,17 @@ public class SeatPanel implements ActionListener {
 	}
 	
 	public void unbook () {
-		clients.append(seat.getClient());
-		seat.empty();
-		button.setText("Book");
-		label.setText(seat.toString());
+		if (seat.isAssigned()) {
+			clients.append(seat.getClient());
+			seat.empty();
+			button.setText("Book");
+			label.setText(seat.toString());
+		}
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.printf("%s pressed while %s selected.\n", seat.seatName(), clients.getSelection());
+		//System.out.printf("%s pressed while %s selected.\n", seat.seatName(), clients.getSelection());
 		if(seat.isAssigned()) {
 			unbook();
 		}
