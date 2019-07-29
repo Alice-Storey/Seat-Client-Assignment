@@ -43,5 +43,11 @@ public class ListControl implements ListSelectionListener {
 	public Client getSelection() {
 		return jlist.getSelectedValue();
 	}
+	
+	public Client popSelection() {
+		Client selection = getSelection();
+		listmodel.removeElement(selection);
+		return selection;
+	}
 
 }
