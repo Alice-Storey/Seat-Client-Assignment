@@ -83,6 +83,9 @@ public class Main {
 		// and at least get an accurate count of the rows loaded in
 		//System.out.println("- Testing the ClientStore class\n");
 		myStore = new ClientStore("clients_list.csv");
+		room = new Room(5,5);
+		
+		/*
 		ClientStore shuffledStore;
 		try {
 			shuffledStore = (ClientStore) myStore.clone();
@@ -92,25 +95,27 @@ public class Main {
 			throw e;
 		}
 		shuffledStore.shuffle();
-		room = new Room(5,5);
 		
-		/*
-		System.out.println("- DataCount: " + myStore.getClientDataCount());
-		System.out.println("\nThis is a list of all the data in the store\n");
-		*/
 		
-		// iterate via the array of store.
+																
+//																System.out.println("- DataCount: " + myStore.getClientDataCount());
+//																System.out.println("\nThis is a list of all the data in the store\n");
+																
+																
+																// iterate via the array of store.
 		Client[] store = shuffledStore.getClientStore();
 		for(int i=0; i<store.length; i++) {
 			Client client = store[i];
 			if(client != null) {
-				//System.out.println(c.getFullClientString());
+																//System.out.println(c.getFullClientString());
 				int r = i/room.getNumRows();
 				int c = i%room.getNumCols();
 				System.out.printf("Assigning %d, %d to %s\n", r, c, client);
 				room.assign(r, c, client);
 			}
 		}
+		*/
+		
 		System.out.println(room);
 		System.out.println(myStore);
 		

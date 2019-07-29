@@ -47,4 +47,8 @@ public class Client {
 	public Seat getSeat() {
 		return this.seat;
 	}
+	
+	public boolean isSeated() {
+		return this.seat != null;
+	}
 }

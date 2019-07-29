@@ -10,7 +10,7 @@ public class Seat {
 	private int c;
 	
 	Seat() {
-		set('A', 0);
+		set('A', -1);
 		this.assignable = true;
 	}
 	
@@ -85,7 +85,7 @@ public class Seat {
 	}
 	
 	public String seatName() {
-		return String.format("%s%d", r.name(), c+1);
+		return c==-1 ? "--" : String.format("%s%d", r.name(), c+1);
 	}
 	
 	public String toString() {
