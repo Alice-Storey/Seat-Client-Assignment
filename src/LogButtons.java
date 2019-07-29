@@ -13,7 +13,7 @@ public class LogButtons implements ActionListener {
 	private ListControl listControl;
 	private ClientStore store;
 	
-	public LogButtons(ButtonControl buttonControl, ListControl listControl, ClientStore store) {
+	public LogButtons(ButtonControl buttonControl, ClientStore store) {
 		panel = new JPanel();
 		this.buttonControl = buttonControl;
 		this.listControl = listControl;
@@ -29,10 +29,10 @@ public class LogButtons implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == buttonReset) {
-			
+			buttonControl.unbookAll();
 		}
 		else {
-			
+			System.out.println(store);
 		}
 
 	}

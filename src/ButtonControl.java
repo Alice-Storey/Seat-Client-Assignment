@@ -58,5 +58,13 @@ public class ButtonControl implements ActionListener {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public void unbookAll() {
+		for (SeatPanel[] row : seatPanels) {
+			for (SeatPanel seatp : row) {
+				seatp.unbook();
+			}
+		}
+	}
 
 }

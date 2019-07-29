@@ -59,7 +59,7 @@ public class Main {
 		buttonControl = new ButtonControl(room, listControl);
 		buttonControl.addTo(frame, BorderLayout.CENTER);
 		
-		LogButtons logButtons = new LogButtons(buttonControl, listControl, myStore);
+		LogButtons logButtons = new LogButtons(buttonControl, myStore);
 		logButtons.addTo(frame, BorderLayout.SOUTH);
 		
 		return frame;
