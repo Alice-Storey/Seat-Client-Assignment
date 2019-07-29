@@ -40,10 +40,28 @@ public class SeatPanel implements ActionListener {
 		panel.add(this.panel);
 	}
 	
+	public void book () {
+		seat.setClient(clients.popSelection());
+		button.setText("Unbook");
+		label.setText(seat.toString());
+	}
+	
+	public void unbook () {
+		clients.append(seat.getClient());
+		seat.empty();
+		button.setText("Book");
+		label.setText(seat.toString());
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.printf("%s pressed while %s selected.\n", seat.seatName(), clients.popSelection());
-		
+		System.out.printf("%s pressed while %s selected.\n", seat.seatName(), clients.getSelection());
+		if(seat.isAssigned()) {
+			unbook();
+		}
+		else if (clients.getSelection() != null) {
+			book();
+		}
 	}
 
 }

@@ -49,5 +49,9 @@ public class ListControl implements ListSelectionListener {
 		listmodel.removeElement(selection);
 		return selection;
 	}
+	
+	public void append(Client client) {
+		listmodel.addElement(client);
+	}
 
 }

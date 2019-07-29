@@ -91,4 +91,8 @@ public class Seat {
 	public String toString() {
 		return isAssigned() ? String.format("id: %d/%s", getClientId(), getClientInitials()) : (canBeAssigned() ? "vacant" : "X");
 	}
+	
+	public void empty() {
+		client = null;
+	}
 }
