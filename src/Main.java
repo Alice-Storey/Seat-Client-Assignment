@@ -11,7 +11,7 @@ import javax.swing.SwingUtilities;
 public class Main {
 	private static Room room;
 	private static ClientStore myStore;
-	private static int width = 500;
+	private static int width = 700;
 	private static int height = 500;
 	private static ListControl listControl;
 	private static ButtonControl buttonControl;
@@ -59,6 +59,9 @@ public class Main {
 		buttonControl = new ButtonControl(room, listControl);
 		buttonControl.addTo(frame, BorderLayout.CENTER);
 		
+		LogButtons logButtons = new LogButtons(buttonControl, listControl, myStore);
+		logButtons.addTo(frame, BorderLayout.SOUTH);
+		
 		return frame;
 	}
 	
@@ -85,6 +88,8 @@ public class Main {
 		myStore = new ClientStore("clients_list.csv");
 		room = new Room(5,5);
 		
+		
+		//code below would randomly assign clients to seats for testing purposes / pass 1
 		/*
 		ClientStore shuffledStore;
 		try {
@@ -116,8 +121,8 @@ public class Main {
 		}
 		*/
 		
-		System.out.println(room);
-		System.out.println(myStore);
+		//System.out.println(room);
+		//System.out.println(myStore);
 		
 		
 	}	
