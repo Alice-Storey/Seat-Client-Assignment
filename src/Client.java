@@ -41,7 +41,7 @@ public class Client implements Comparable {
 	}
 	
 	public String toString() {
-		return getClientFirstName() + " " + getClientLastName();
+		return getClientLastName() + ", " + getClientFirstName();
 	}
 	
 	public void setSeat(Seat seat) {
@@ -59,6 +59,7 @@ public class Client implements Comparable {
 	@Override
 	public int compareTo(Object o) {
 		Client other = (Client) o;
-		return this.getClientFullName().compareTo(other.getClientFullName());
+		int compareLast = this.getClientLastName().compareTo(other.getClientLastName());
+		return compareLast!=0 ? compareLast : this.getClientFirstName().compareTo(other.getClientFirstName());
 	}
 }
