@@ -45,8 +45,9 @@ public class SeatPanel implements ActionListener {
 		if (!seat.isAssigned()) {
 			seat.setClient(clients.popSelection());
 		}
-		button.setText("Unbook");
 		label.setText(seat.toString());
+		label.setFont(new Font("Arial", Font.BOLD, 12));
+		button.setText("Unbook");
 		button.setBackground(Color.GRAY);
 	}
 	
@@ -55,8 +56,9 @@ public class SeatPanel implements ActionListener {
 			clients.append(seat.getClient());
 			seat.empty();			
 		}
-		button.setText("Book");
 		label.setText(seat.toString());
+		label.setFont(new Font("Arial", Font.ITALIC, 12));
+		button.setText("Book");
 		button.setBackground(Color.GREEN);
 	}
 	
