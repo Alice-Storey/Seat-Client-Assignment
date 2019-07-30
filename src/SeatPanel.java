@@ -56,6 +56,7 @@ public class SeatPanel implements ActionListener {
 	public void unbook () {
 		if (seat.isAssigned()) {
 			clients.append(seat.getClient());
+			seat.getClient().setSeat(null);
 			seat.empty();			
 		}
 		label.setText(seat.toString());
