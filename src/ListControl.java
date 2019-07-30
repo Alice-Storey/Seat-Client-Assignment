@@ -5,11 +5,13 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
+import javax.swing.border.EtchedBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -25,6 +27,7 @@ public class ListControl implements ListSelectionListener {
 		scrollPane = new JScrollPane(jlist);
 		scrollPane.setSize( width/3, height-60 );
 		jlist.addListSelectionListener(this);
+		scrollPane.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.RAISED));
 	}
 
 	

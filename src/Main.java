@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Font;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
@@ -38,6 +39,7 @@ public class Main {
 	public static JLabel setHeaderLabel(JFrame frame) {
 		
 		JLabel headerLabel = new JLabel(TITLE, JLabel.CENTER);
+		headerLabel.setFont(new Font("Arial", Font.BOLD, 20));
 		JPanel headerPanel = new JPanel();
 		headerPanel.setSize(width, 30);
 		headerPanel.add(headerLabel);

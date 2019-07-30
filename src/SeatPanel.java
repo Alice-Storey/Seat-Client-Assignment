@@ -64,7 +64,7 @@ public class SeatPanel implements ActionListener {
 		label.setText(seat.toString());
 		label.setFont(new Font(FONT, Font.ITALIC, FONTSIZE));
 		button.setText("Book");
-		button.setBackground(Color.GREEN);
+		button.setBackground(new Color(100, 232, 72));
 		button.setBorder(BorderFactory.createRaisedBevelBorder());
 	}
 	
