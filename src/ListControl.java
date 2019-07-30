@@ -39,12 +39,6 @@ public class ListControl implements ListSelectionListener {
 		}
 	}
 	
-	public void populate(Object[] clientarr) {
-		for (Object client : clientarr) {
-			listmodel.addElement((Client)client);
-		}
-	}
-	
 	public void addTo(JFrame frame, String pos) {
 		frame.add(scrollPane, pos);
 	}
@@ -66,9 +60,10 @@ public class ListControl implements ListSelectionListener {
 	
 	public void sort() {
 		Object[] arr = listmodel.toArray();
-		Arrays.sort(arr);
+		Client[] clientarr = Arrays.copyOf(arr, arr.length, Client[].class);
+		Arrays.sort(clientarr);
 		listmodel.clear();
-		populate(arr);
+		populate(clientarr);
 	}
 	
 	public <T> void append(Client client) {
