@@ -1,16 +1,22 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
 
 public class SeatPanel implements ActionListener {
@@ -27,14 +33,22 @@ public class SeatPanel implements ActionListener {
 		this.clients = clients;
 		label = new JLabel(seat.toString(), JLabel.CENTER);
 		panel = new JPanel();
-		panel.setLayout(new GridLayout(2,1));
-		panel.add(label);
+		panel.setLayout(new GridLayout(2,1,0,-16));
 		
-		button = new JButton("Book");
+		
+		button = new JButton();
 		button.addActionListener(this);
+		JPanel buttonPanel = new JPanel();
+		buttonPanel.setLayout(new FlowLayout());
+		//buttonPanel.setBorder(new EmptyBorder(8,0,0,0));
+		button.setMaximumSize(new Dimension(45,45));
 		unbook();
 		
-		panel.add(button);
+		panel.add(label);
+		buttonPanel.add(button);
+		panel.add(buttonPanel);
+		
+		//panel.add(button);
 		panel.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
 	}
 	
@@ -44,13 +58,21 @@ public class SeatPanel implements ActionListener {
 		panel.add(this.panel);
 	}
 	
+	public void setIcon(String filename) {
+		ImageIcon icon = new ImageIcon(filename);
+		Image image = icon.getImage();
+		Image newimg = image.getScaledInstance(35, 35, java.awt.Image.SCALE_SMOOTH);
+		button.setIcon(new ImageIcon(newimg));
+	}
+	
 	public void book () {
 		if (!seat.isAssigned()) {
 			seat.setClient(clients.popSelection());
 		}
 		label.setText(seat.toString());
 		label.setFont(new Font(FONT, Font.BOLD, FONTSIZE));
-		button.setText("Unbook");
+		//button.setText("Unbook");
+		setIcon("seat.png");
 		button.setBackground(Color.GRAY);
 		button.setBorder(BorderFactory.createLoweredBevelBorder());
 	}
@@ -63,7 +85,11 @@ public class SeatPanel implements ActionListener {
 		}
 		label.setText(seat.toString());
 		label.setFont(new Font(FONT, Font.ITALIC, FONTSIZE));
-		button.setText("Book");
+		
+		//button.setText("Book");
+		setIcon("seat_empty.png");
+		
+		
 		button.setBackground(new Color(100, 232, 72));
 		button.setBorder(BorderFactory.createRaisedBevelBorder());
 	}

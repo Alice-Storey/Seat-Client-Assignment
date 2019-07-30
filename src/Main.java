@@ -13,7 +13,7 @@ public class Main {
 	private static Room room;
 	private static ClientStore myStore;
 	private static int width = 1200;
-	private static int height = 800;
+	private static int height = 1000;
 	private static ListControl listControl;
 	private static ButtonControl buttonControl;
 	private static final String TITLE="Seat Booking App Demo";
