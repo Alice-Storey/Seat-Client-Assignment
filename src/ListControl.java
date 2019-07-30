@@ -1,3 +1,4 @@
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -25,7 +26,9 @@ public class ListControl implements ListSelectionListener {
 		jlist = new JList<Client>(listmodel);
 		jlist.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		scrollPane = new JScrollPane(jlist);
-		scrollPane.setSize( width/3, height-60 );
+		scrollPane.setMaximumSize( new Dimension(width/6, height-60 ));
+		scrollPane.setPreferredSize( new Dimension(width/6, height-60 ));
+		scrollPane.setMinimumSize(new Dimension(width/6, height-60));
 		jlist.addListSelectionListener(this);
 		scrollPane.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.RAISED));
 	}
