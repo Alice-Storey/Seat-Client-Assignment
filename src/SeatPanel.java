@@ -18,6 +18,8 @@ public class SeatPanel implements ActionListener {
 	private JLabel label;
 	private JButton button;
 	private ListControl clients;
+	private final int FONTSIZE=14;
+	private final String FONT="Arial";
 	
 	public SeatPanel(Seat seat, ListControl clients) {
 		this.seat = seat;
@@ -46,7 +48,7 @@ public class SeatPanel implements ActionListener {
 			seat.setClient(clients.popSelection());
 		}
 		label.setText(seat.toString());
-		label.setFont(new Font("Arial", Font.BOLD, 12));
+		label.setFont(new Font(FONT, Font.BOLD, FONTSIZE));
 		button.setText("Unbook");
 		button.setBackground(Color.GRAY);
 	}
@@ -57,7 +59,7 @@ public class SeatPanel implements ActionListener {
 			seat.empty();			
 		}
 		label.setText(seat.toString());
-		label.setFont(new Font("Arial", Font.ITALIC, 12));
+		label.setFont(new Font(FONT, Font.ITALIC, FONTSIZE));
 		button.setText("Book");
 		button.setBackground(Color.GREEN);
 	}

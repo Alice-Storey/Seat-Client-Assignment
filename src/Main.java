@@ -11,8 +11,8 @@ import javax.swing.SwingUtilities;
 public class Main {
 	private static Room room;
 	private static ClientStore myStore;
-	private static int width = 700;
-	private static int height = 500;
+	private static int width = 1200;
+	private static int height = 800;
 	private static ListControl listControl;
 	private static ButtonControl buttonControl;
 	private static final String TITLE="My 2nd Matrix Demo";
@@ -87,7 +87,7 @@ public class Main {
 		// and at least get an accurate count of the rows loaded in
 		//System.out.println("- Testing the ClientStore class\n");
 		myStore = new ClientStore("clients_list.csv");
-		room = new Room(5,5);
+		room = new Room(10,10);
 		
 		
 		//code below would randomly assign clients to seats for testing purposes / pass 1
