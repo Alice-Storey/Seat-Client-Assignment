@@ -29,6 +29,7 @@ public class SeatPanel implements ActionListener {
 		
 		button = new JButton("Book");
 		button.addActionListener(this);
+		button.setBackground(Color.GREEN);
 		
 		panel.add(button);
 		panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -45,6 +46,7 @@ public class SeatPanel implements ActionListener {
 			seat.setClient(clients.popSelection());
 			button.setText("Unbook");
 			label.setText(seat.toString());
+			button.setBackground(Color.GRAY);
 		}
 	}
 	
@@ -54,6 +56,7 @@ public class SeatPanel implements ActionListener {
 			seat.empty();
 			button.setText("Book");
 			label.setText(seat.toString());
+			button.setBackground(Color.GREEN);
 		}
 	}
 	
