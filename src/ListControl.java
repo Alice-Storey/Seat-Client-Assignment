@@ -9,6 +9,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
+import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -20,6 +21,7 @@ public class ListControl implements ListSelectionListener {
 	public ListControl(int width, int height) {
 		listmodel = new DefaultListModel<Client>();
 		jlist = new JList<Client>(listmodel);
+		jlist.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		scrollPane = new JScrollPane(jlist);
 		scrollPane.setSize( width/3, height-60 );
 		jlist.addListSelectionListener(this);
