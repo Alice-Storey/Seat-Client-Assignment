@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.border.EtchedBorder;
 
 public class SeatPanel implements ActionListener {
 	private Seat seat;
@@ -34,7 +35,7 @@ public class SeatPanel implements ActionListener {
 		unbook();
 		
 		panel.add(button);
-		panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		panel.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
 	}
 	
 	

@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.border.EtchedBorder;
 import javax.swing.JLabel;
 
 public class ButtonControl implements ActionListener {
@@ -20,7 +21,7 @@ public class ButtonControl implements ActionListener {
 		panel.setLayout(new GridLayout(rows+1, cols+1, 0, 8) );
 		panel.setSize(rows*60, cols*60);
 //		panel.setBorder(BorderFactory.createEmptyBorder(2,2,2,2));
-		panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		panel.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.RAISED));
 		//extra row and col for labels
 		
 		
