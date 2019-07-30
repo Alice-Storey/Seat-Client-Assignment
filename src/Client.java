@@ -1,6 +1,6 @@
 // a client object
 
-public class Client {
+public class Client implements Comparable {
 	private String lastname;
 	private String firstname;
 	private int id;
@@ -22,6 +22,10 @@ public class Client {
 	
 	String getClientFirstName() {
 		return firstname;
+	}
+	
+	String getClientFullName() {
+		return getClientFirstName() + getClientLastName();
 	}
 	
 	String getClientInitials() {
@@ -50,5 +54,11 @@ public class Client {
 	
 	public boolean isSeated() {
 		return this.seat != null;
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		Client other = (Client) o;
+		return this.getClientFullName().compareTo(other.getClientFullName());
 	}
 }

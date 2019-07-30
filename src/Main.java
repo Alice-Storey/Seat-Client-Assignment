@@ -54,6 +54,7 @@ public class Main {
 		
 		listControl = new ListControl(width, height);
 		listControl.populate(myStore);		
+		listControl.sort();
 		listControl.addTo(frame, BorderLayout.WEST);
 		
 		buttonControl = new ButtonControl(room, listControl);

@@ -1,5 +1,9 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
@@ -25,10 +29,20 @@ public class ListControl implements ListSelectionListener {
 	public void populate(ClientStore store) {
 		Client[] clientarr = store.getClientStore();
 		
+		populate(clientarr);
+		
+	}
+	
+	public void populate(Client[] clientarr) {
 		for (Client client : clientarr) {
 			listmodel.addElement(client);
 		}
-		
+	}
+	
+	public void populate(Object[] clientarr) {
+		for (Object client : clientarr) {
+			listmodel.addElement((Client)client);
+		}
 	}
 	
 	public void addTo(JFrame frame, String pos) {
@@ -50,8 +64,18 @@ public class ListControl implements ListSelectionListener {
 		return selection;
 	}
 	
-	public void append(Client client) {
+	public void sort() {
+		Object[] arr = listmodel.toArray();
+		Arrays.sort(arr);
+		listmodel.clear();
+		populate(arr);
+	}
+	
+	public <T> void append(Client client) {
 		listmodel.addElement(client);
+//		ArrayList<Client> list = Collections.list(listmodel.elements() ) ;
+//		Collections.sort(list);
+		sort();
 	}
 
 }
