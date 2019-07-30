@@ -32,6 +32,7 @@ public class SeatPanel implements ActionListener {
 		this.seat = seat;
 		this.clients = clients;
 		label = new JLabel(seat.toString(), JLabel.CENTER);
+		label.setToolTipText("(available)");
 		panel = new JPanel();
 		panel.setLayout(new GridLayout(2,1,0,-16));
 		
@@ -70,6 +71,7 @@ public class SeatPanel implements ActionListener {
 			seat.setClient(clients.popSelection());
 		}
 		label.setText(seat.toString());
+		label.setToolTipText(seat.getClient().getClientFullName());
 		label.setFont(new Font(FONT, Font.BOLD, FONTSIZE));
 		//button.setText("Unbook");
 		setIcon("seat.png");
@@ -84,6 +86,7 @@ public class SeatPanel implements ActionListener {
 			seat.empty();			
 		}
 		label.setText(seat.toString());
+		label.setToolTipText("(available)");
 		label.setFont(new Font(FONT, Font.ITALIC, FONTSIZE));
 		
 		//button.setText("Book");
