@@ -34,15 +34,17 @@ public class SeatPanel implements ActionListener {
 		label = new JLabel(seat.toString(), JLabel.CENTER);
 		label.setToolTipText("(available)");
 		panel = new JPanel();
-		panel.setLayout(new GridLayout(2,1,0,-16));
-		
+		//panel.setLayout(new GridLayout(2,1));
+		panel.setLayout(new FlowLayout());
 		
 		button = new JButton();
 		button.addActionListener(this);
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setLayout(new FlowLayout());
-		//buttonPanel.setBorder(new EmptyBorder(8,0,0,0));
-		button.setMaximumSize(new Dimension(45,45));
+		//buttonPanel.setBorder(new EmptyBorder(0,0,0,0));
+		//button.setMaximumSize(new Dimension(45,45));
+		buttonPanel.setMinimumSize(new Dimension(40,40));
+		buttonPanel.setPreferredSize(new Dimension(40,40));
 		unbook();
 		
 		panel.add(label);
@@ -62,7 +64,7 @@ public class SeatPanel implements ActionListener {
 	public void setIcon(String filename) {
 		ImageIcon icon = new ImageIcon(filename);
 		Image image = icon.getImage();
-		Image newimg = image.getScaledInstance(35, 35, java.awt.Image.SCALE_SMOOTH);
+		Image newimg = image.getScaledInstance(32, 32, java.awt.Image.SCALE_SMOOTH);
 		button.setIcon(new ImageIcon(newimg));
 	}
 	
