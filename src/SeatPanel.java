@@ -29,7 +29,7 @@ public class SeatPanel implements ActionListener {
 		
 		button = new JButton("Book");
 		button.addActionListener(this);
-		button.setBackground(Color.GREEN);
+		unbook();
 		
 		panel.add(button);
 		panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -44,20 +44,20 @@ public class SeatPanel implements ActionListener {
 	public void book () {
 		if (!seat.isAssigned()) {
 			seat.setClient(clients.popSelection());
-			button.setText("Unbook");
-			label.setText(seat.toString());
-			button.setBackground(Color.GRAY);
 		}
+		button.setText("Unbook");
+		label.setText(seat.toString());
+		button.setBackground(Color.GRAY);
 	}
 	
 	public void unbook () {
 		if (seat.isAssigned()) {
 			clients.append(seat.getClient());
-			seat.empty();
-			button.setText("Book");
-			label.setText(seat.toString());
-			button.setBackground(Color.GREEN);
+			seat.empty();			
 		}
+		button.setText("Book");
+		label.setText(seat.toString());
+		button.setBackground(Color.GREEN);
 	}
 	
 	@Override
