@@ -15,7 +15,7 @@ public class Main {
 	private static int height = 800;
 	private static ListControl listControl;
 	private static ButtonControl buttonControl;
-	private static final String TITLE="My 2nd Matrix Demo";
+	private static final String TITLE="Seat Booking App Demo";
 	
 	public static void startApp() {
 		System.out.println("startApp()");
@@ -48,6 +48,7 @@ public class Main {
 	
 	public static JFrame setupFrame(JFrame frame, int onExit) {
 		centerAndSizeJFrameOnScreen(frame, width, height);
+		frame.setResizable(false);
 		frame.setDefaultCloseOperation(onExit);
 		
 		setHeaderLabel(frame);
