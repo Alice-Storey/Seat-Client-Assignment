@@ -51,6 +51,7 @@ public class SeatPanel implements ActionListener {
 		label.setFont(new Font(FONT, Font.BOLD, FONTSIZE));
 		button.setText("Unbook");
 		button.setBackground(Color.GRAY);
+		button.setBorder(BorderFactory.createLoweredBevelBorder());
 	}
 	
 	public void unbook () {
@@ -63,6 +64,7 @@ public class SeatPanel implements ActionListener {
 		label.setFont(new Font(FONT, Font.ITALIC, FONTSIZE));
 		button.setText("Book");
 		button.setBackground(Color.GREEN);
+		button.setBorder(BorderFactory.createRaisedBevelBorder());
 	}
 	
 	@Override
