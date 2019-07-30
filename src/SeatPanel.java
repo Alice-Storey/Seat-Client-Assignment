@@ -76,6 +76,7 @@ public class SeatPanel implements ActionListener {
 		label.setToolTipText(seat.getClient().getClientFullName());
 		label.setFont(new Font(FONT, Font.BOLD, FONTSIZE));
 		//button.setText("Unbook");
+		button.setToolTipText("Unbook");
 		setIcon("seat.png");
 		button.setBackground(Color.GRAY);
 		button.setBorder(BorderFactory.createLoweredBevelBorder());
@@ -92,6 +93,7 @@ public class SeatPanel implements ActionListener {
 		label.setFont(new Font(FONT, Font.ITALIC, FONTSIZE));
 		
 		//button.setText("Book");
+		button.setToolTipText("Book");
 		setIcon("seat_empty.png");
 		
 		
